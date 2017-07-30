@@ -1,7 +1,7 @@
 angular.module("loginPage",[])
-.constants("loginConstants",{
+.constant("loginConstant",{
 	
 })
-.controller("loginController",["$scope", "loginConstants",function($scope,loginConstants){
-	
+.controller("loginController",["$scope", "loginConstant",function($scope,loginConstant){
+	console.log("login controller");
 }])
