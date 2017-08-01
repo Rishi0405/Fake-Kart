@@ -34,8 +34,8 @@ var rootConfig = function($stateProvider, $urlRouterProvider){
 		controller: "masterController"
 	})
 	
-	.state("main.login",{
-		url: "login",
+	.state("main.home",{
+		url: "/home",
 		templateUrl: "resources/modules/login/login.html",
 		resolve: {
 			loadplugins: ['$ocLazyLoad', function($ocLazyLoad) {
