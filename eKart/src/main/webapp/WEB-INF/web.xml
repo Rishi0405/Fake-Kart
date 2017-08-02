@@ -4,29 +4,38 @@
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
   <display-name>Archetype Created Web Application</display-name>
-  <servlet>
+ 	
+ 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
 		<servlet-class>
                     org.springframework.web.servlet.DispatcherServlet
-                </servlet-class>
+        </servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-  <!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
-<context-param>
-    <param-name>contextConfigLocation</param-name>
-    <param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
-</context-param>
+	
+	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+	<context-param>
+	    <param-name>contextConfigLocation</param-name>
+	    <param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
+	</context-param>
 
-<!-- Creates the Spring Container shared by all Servlets and Filters -->
-<listener>
-    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-</listener>
+	<!-- Creates the Spring Container shared by all Servlets and Filters -->
+	<listener>
+	    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!-- Error page(html5 mode)  -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/</location>
+	</error-page>
   
-  <welcome-file-list>  
-   <welcome-file>main.html</welcome-file>  
-  </welcome-file-list>  
+	<!-- Welcome file  -->  
+	<welcome-file-list>  
+		<welcome-file>main.html</welcome-file>  
+	</welcome-file-list>  
 </web-app>

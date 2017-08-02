@@ -35,17 +35,17 @@ var rootConfig = function($stateProvider, $urlRouterProvider){
 	})
 	
 	.state("main.home",{
-		url: "/home",
-		templateUrl: "resources/modules/login/login.html",
+		url: "home",
+		templateUrl: "resources/modules/home/home.html",
 		resolve: {
 			loadplugins: ['$ocLazyLoad', function($ocLazyLoad) {
 	             return $ocLazyLoad.load({
-	            	 		name: "loginPage",
-	            	 		files: ["resources/modules/login/login.js"],
+	            	 		name: "homePage",
+	            	 		files: ["resources/modules/home/home.js"],
 	            	 });
 			 }]
 		},
-		controller: "loginController"
+		controller: "homeController"
 	})
 }
 
