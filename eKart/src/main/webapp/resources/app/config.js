@@ -9,7 +9,7 @@ var locationProvider = function($locationProvider) {
 
 var providerConfig = function($ocLazyLoadProvider) {
   $ocLazyLoadProvider.config({
-	  debug: true,
+	  debug: false,
 	  events: true,
   });
 }
@@ -47,6 +47,20 @@ var rootConfig = function($stateProvider, $urlRouterProvider){
 		},
 		controller: "homeController"
 	})
+	
+	.state("main.login",{
+		url: "login",
+		templateUrl: "resources/modules/login/login.html",
+		resolve: {
+			loadplugins: ['$ocLazyLoad', function($ocLazyLoad) {
+	             return $ocLazyLoad.load({
+	            	 		name: "loginPage",
+	            	 		files: ["resources/modules/login/login.js"],
+	            	 });
+			 }]
+		},
+		controller: "loginController"
+	})
 }
 
 qprovider.$inject = ["$qProvider"];
@@ -55,7 +69,7 @@ providerConfig.$inject = ['$ocLazyLoadProvider'];
 rootConfig.$inject = ["$stateProvider", "$urlRouterProvider"];
 
 
-angular.module("eKartConfig",[])
+angular.module("eKartConfig",['translateConfig'])
 .config(qprovider)
 .config(locationProvider)
 .config(providerConfig)

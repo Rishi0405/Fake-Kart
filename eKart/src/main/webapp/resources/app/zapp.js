@@ -1,8 +1,9 @@
 angular.module('eKart',[
+		'ngMaterial',
+		'ngMessages',
+		'ngAria',
 		'ngSanitize',
 		'ngAnimate',
-		'ngTouch',	
-		'pascalprecht.translate',
 		'ui.router',
 		'oc.lazyLoad',
 		'ui.bootstrap',

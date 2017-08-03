@@ -3,5 +3,7 @@ angular.module("loginPage",[])
 	
 })
 .controller("loginController",["$scope", "loginConstant",function($scope,loginConstant){
-	console.log("login controller");
+	
+	$scope.signup = {};
+	$scope.signup.formdata = {};
 }])
