@@ -12,32 +12,39 @@ var translate = function($translateProvider) {
 }
 var translateDefinition = function(languageService){
 	$translateProviderRef.preferredLanguage('en');
-	$translateProviderRef.translations('en', languageService.getLanguage("english"));
-	$translateProviderRef.translations('fr', languageService.getLanguage("french"));
+	
+	languageService.getLanguage("english").then(function(res){
+		$translateProviderRef.translations('en', res);
+	})
+	languageService.getLanguage("french").then(function(res){
+		$translateProviderRef.translations('fr', res);
+	})
 }
 
-var getLanguage = function($http){
+var getLanguage = function($http, $q){
 	return function(urls){
 		return function(language){
+			var deffer = $q.defer();
 			$http.get(urls[language]).then(function(res){
-				return res.data;
+				deffer.resolve(res.data);
 			},function(res){
 				
 			});
+			return deffer.promise
 		}
 	}
 }
 
 var languageService = function(getLanguage, urls){
-	var languages = new getLanguage(urls);
+	var getLanguage = new getLanguage(urls);
 	return {
-		getLanguage: languages
+		getLanguage: getLanguage
 	}
 }
 
 translate.$inject = ["$translateProvider"];
 translateDefinition.$inject = ["languageService"];
-getLanguage.$inject = ["$http"];
+getLanguage.$inject = ["$http", "$q"];
 languageService.$inject = ["getLanguage","urls"];
 
 angular.module("translateConfig",['pascalprecht.translate'])

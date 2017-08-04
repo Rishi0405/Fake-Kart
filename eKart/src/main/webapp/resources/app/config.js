@@ -9,7 +9,7 @@ var locationProvider = function($locationProvider) {
 
 var providerConfig = function($ocLazyLoadProvider) {
   $ocLazyLoadProvider.config({
-	  debug: false,
+	  debug: true,
 	  events: true,
   });
 }
@@ -36,6 +36,7 @@ var rootConfig = function($stateProvider, $urlRouterProvider){
 	
 	.state("main.home",{
 		url: "home",
+		abstract: true,
 		templateUrl: "resources/modules/home/home.html",
 		resolve: {
 			loadplugins: ['$ocLazyLoad', function($ocLazyLoad) {
@@ -48,8 +49,13 @@ var rootConfig = function($stateProvider, $urlRouterProvider){
 		controller: "homeController"
 	})
 	
-	.state("main.login",{
-		url: "login",
+	.state("main.home.welcome",{
+		url: "/welcome",
+		templateUrl: "resources/modules/banners/welcome.html",
+	})
+	
+	.state("main.home.login",{
+		url: "/login",
 		templateUrl: "resources/modules/login/login.html",
 		resolve: {
 			loadplugins: ['$ocLazyLoad', function($ocLazyLoad) {
@@ -60,6 +66,20 @@ var rootConfig = function($stateProvider, $urlRouterProvider){
 			 }]
 		},
 		controller: "loginController"
+	})
+	
+	.state("main.home.signup",{
+		url: "/signup",
+		templateUrl: "resources/modules/signup/signup.html",
+		resolve: {
+			loadplugins: ['$ocLazyLoad', function($ocLazyLoad) {
+	             return $ocLazyLoad.load({
+	            	 		name: "signupPage",
+	            	 		files: ["resources/modules/signup/signup.js"],
+	            	 });
+			 }]
+		},
+		controller: "signupController"
 	})
 }
 
