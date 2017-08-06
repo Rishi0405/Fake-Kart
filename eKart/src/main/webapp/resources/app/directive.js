@@ -5,7 +5,6 @@ var myTitle = function(){
 		replace:true,
 	}
 }
-
 var fixedHeader = function($window, $timeout){
 	return{
 		restrict: "E",
@@ -30,6 +29,13 @@ var fixedHeader = function($window, $timeout){
 		}
 	}
 }
+var header = function(){
+	return{
+		restrict: "E",
+		template: '<div ng-include="\'./resources/modules/home/banners/header.html\'">',
+		replace:true
+	}
+}
 var signuploginHeader = function(){
 	return{
 		restrict: "E",
@@ -52,4 +58,5 @@ fixedHeader.$inject = ['$window', '$timeout'];
 angular.module("eKartDirective",[])
 .directive("myTitle",myTitle)
 .directive("fixedHeader",fixedHeader)
+.directive("header",header)
 .directive("signuploginHeader",signuploginHeader)

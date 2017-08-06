@@ -51,7 +51,7 @@ var rootConfig = function($stateProvider, $urlRouterProvider){
 	
 	.state("main.home.welcome",{
 		url: "/welcome",
-		templateUrl: "resources/modules/banners/welcome.html",
+		templateUrl: "resources/modules/home/banners/welcome.html",
 	})
 	
 	.state("main.home.login",{

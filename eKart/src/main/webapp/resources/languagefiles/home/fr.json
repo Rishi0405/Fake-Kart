@@ -1,0 +1,15 @@
+{
+	"login": "s'identifier",
+	"signup": "s'inscrire",
+	"b_profile": "Profil de l'entreprise",
+	"u_profile": "Profil de l'utilisateur",
+	"user_login": "User name/ Email",
+	"e-mail_id": "Nom d'utilisateur / Email",
+	"password": "Password",
+	"reveal_pass": "Mot de passe",
+	"confirm_password": "Confirmez le mot de passe",
+	"required": "Ceci est nécessaire.",
+	"mail_error": "Votre adresse électronique doit avoir entre 10 et 100 caractères et ressembler à une adresse e-mail.",
+	"pass_error": "Le mot de passe doit comporter au moins 8 caractères et doit contenir un nombre, un caractère et un caractère spécial.",
+	"cpass_error": "Le mot de passe ne correspond pas l'un avec l'autre."	
+}
