@@ -1,7 +1,5 @@
 angular.module("loginPage",[])
 .constant("loginConstant",{
-	email_pattern: /^.+@.+\..+$/,
-	pass_pattern: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/
 })
 .controller("loginController",["$scope", "loginConstant",function($scope,loginConstant){
 	$scope.login = {};

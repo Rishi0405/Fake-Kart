@@ -10,6 +10,5 @@
 	"required": "This is required.",
 	"mail_error": "Your email must be between 10 and 100 characters long and look like an e-mail address.",
 	"pass_error": "Password should be at least 8 characters long and should contain one number,one character and one special character.",
-	"cpass_error": "Password doesnot match with each other.",
-	
+	"cpass_error": "Password doesnot match with each other."	
 }
