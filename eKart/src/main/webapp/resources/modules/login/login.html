@@ -1,2 +1,31 @@
-<div ng-include="'./resources/modules/banners/header.html'"></div>
+<div ng-include="login.general.header"></div>
 
+<div>
+	<signuplogin-header status="login.pills.status"></signuplogin-header>
+	<div>
+		<div ng-show="login.pills.status">
+			<form name="business">
+				<md-input-container class="md-block"> <label>{{'user_login'
+					| translate}}</label> <input md-no-asterisk name="userid"
+					ng-model="login.formdata.user" required>
+				</md-input-container>
+				<md-input-container class="md-block"> <label>{{'password'
+					| translate}}</label> <input name="password"
+					ng-model="login.formdata.password" minlength="8"
+					ng-pattern="login.general.passpattern" required>
+				<div>
+					<md-checkbox name="showpassword" ng-model="login.general.reveal">{{'reveal_pass'
+					| translate}}</md-checkbox>
+				</div>
+				</md-input-container>
+				<div><label>{{login.general.validationText}}</label></div>
+			</form>
+			<div>
+				<md-button class="md-primary"
+					ng-disabled="business.$invalid && business.cpassword.error.notmatch">{{'login'
+				| translate}}</md-button>
+			</div>
+		</div>
+		<div ng-hide="login.pills.status">Working on it</div>
+	</div>
+</div>

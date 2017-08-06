@@ -1,13 +1,6 @@
-<div ng-include="'./resources/modules/banners/header.html'"></div>
+<div ng-include="signup.general.header"></div>
 <div>
-	<div>
-		<ul>
-			<li ng-class="{active: signup.pills.status}"
-				ng-click="signup.pills.status=true">{{'b_profile' | translate}}</li>
-			<li ng-class="{active: !signup.pills.status}"
-				ng-click="signup.pills.status=false">{{'u_profile' | translate}}</li>
-		</ul>
-	</div>
+	<signuplogin-header status="signup.pills.status"></signuplogin-header>
 	<div>
 		<div ng-show="signup.pills.status">
 			<form name="business">
