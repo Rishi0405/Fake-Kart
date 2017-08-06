@@ -1,4 +1,5 @@
 var translate = function($translateProvider) {
+	$translateProvider.useSanitizeValueStrategy('sanitize');
 	$translateProvider.useStaticFilesLoader({
 	    prefix: 'resources/languagefiles/',
 	    suffix: '.json'
