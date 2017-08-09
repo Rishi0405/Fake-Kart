@@ -55,7 +55,7 @@ var signuploginHeader = function(){
 }
 fixedHeader.$inject = ['$window', '$timeout'];
 
-angular.module("eKartDirective",[])
+angular.module("eKart")
 .directive("myTitle",myTitle)
 .directive("fixedHeader",fixedHeader)
 .directive("header",header)

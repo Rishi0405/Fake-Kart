@@ -1,4 +1,6 @@
 angular.module('eKart',[
+		'barcodeListener',
+		'pascalprecht.translate',
 		'ngMaterial',
 		'ngMessages',
 		'ngAria',
@@ -7,11 +9,6 @@ angular.module('eKart',[
 		'ui.router',
 		'oc.lazyLoad',
 		'ui.bootstrap',
-		'eKartConfig',
-		'eKartRun',
-		'eKartDirective',
-		'eKartService',
-		'eKartConstants',
 ])
 angular.element(document).ready(function() {
   angular.bootstrap(document, ['eKart']);

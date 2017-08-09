@@ -38,7 +38,8 @@ var translateErrorHandler = function ($q, $log) {
 dataFunction.$inject = ["$http", "$q"];
 promise.$inject = ["$q"];
 translateErrorHandler.$inject = ["$q", "$log"];
-angular.module("eKartService",[])
+
+angular.module("eKart")
 .factory("dataFunction",dataFunction)
 .factory("promise",promise)
 .factory('MyErrorHandler', translateErrorHandler)

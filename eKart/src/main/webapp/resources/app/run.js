@@ -17,7 +17,7 @@ necessaryRootVariables.$inject = ['$rootScope', '$state', '$stateParams', '$tran
 debuggeUiRouter.$inject = ["$rootScope"];
 translateRefresh.$inject = ["$rootScope", "$translate"];
 
-angular.module("eKartRun",[])
+angular.module("eKart")
 .run(necessaryRootVariables)
 .run(debuggeUiRouter)
 .run(translateRefresh);

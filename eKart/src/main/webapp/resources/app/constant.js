@@ -1,4 +1,4 @@
-angular.module("eKartConstants",[])
+angular.module("eKart")
 .constant("commonConstants",{
 	
 })
