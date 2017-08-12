@@ -4,7 +4,9 @@ angular.module("billingPage", [])
 	
 	$scope.billing = {};
 	
-	$scope.billing.handleScan = function(){
-		console.log("handled")
+	
+	$scope.billing.callBack = function(code){
+		console.log("Billing page", code)
 	}
+	
 }])

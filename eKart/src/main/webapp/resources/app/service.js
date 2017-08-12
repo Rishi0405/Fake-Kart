@@ -1,5 +1,5 @@
-var dataFunction = function($http, $q){
-	var getData = function(type,url,data,options){
+var dataService = function($http, $q){
+	var call = function(type,url,data,options){
 		var deffer = $q.defer();
 		
 		$http[type](url,data,options).success(function(res){
@@ -11,7 +11,7 @@ var dataFunction = function($http, $q){
 		return deffer.promise;
 	}
 	return {
-		getData: getData,
+		call: call,
 	}
 }
 
@@ -35,11 +35,11 @@ var translateErrorHandler = function ($q, $log) {
 	  };
 }
 
-dataFunction.$inject = ["$http", "$q"];
+dataService.$inject = ["$http", "$q"];
 promise.$inject = ["$q"];
 translateErrorHandler.$inject = ["$q", "$log"];
 
 angular.module("eKart")
-.factory("dataFunction",dataFunction)
+.factory("dataService",dataService)
 .factory("promise",promise)
 .factory('MyErrorHandler', translateErrorHandler)

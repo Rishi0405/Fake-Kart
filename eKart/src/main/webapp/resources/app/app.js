@@ -1,5 +1,4 @@
 angular.module('eKart',[
-		'barcodeListener',
 		'pascalprecht.translate',
 		'ngMaterial',
 		'ngMessages',
