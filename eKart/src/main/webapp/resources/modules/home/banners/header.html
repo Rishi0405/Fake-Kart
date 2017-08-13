@@ -1,6 +1,8 @@
-<div class="col-md-12 login-signup-section textRight">  <!-- Add selected class -->
-	<button ng-click="home.header.gotoState('main.home.login')">{{
+<div class="col-md-12 login-signup-section textRight">
+	<button ng-click="home.header.gotoState('main.home.login')"
+		ng-class="{selected: $state.includes('main.home.login')}">{{
 		'Login' | translate }}</button>
-	<button ng-click="home.header.gotoState('main.home.signup')">{{
+	<button ng-click="home.header.gotoState('main.home.signup')"
+		ng-class="{selected: $state.includes('main.home.signup')}">{{
 		'Signup' | translate }}</button>
 </div>

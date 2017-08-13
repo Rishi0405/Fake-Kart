@@ -1,6 +1,7 @@
 angular.module("userPage", [])
 
 .constant("userConstant", {
+	userDetails: {name: 'Rishi'},
 	navs : [{
 		icon : "window-maximize",
 		title : "Dashboard",
@@ -14,7 +15,6 @@ angular.module("userPage", [])
 		title : "Settings",
 		uiState : "main.myprofile.setttings"
 	}],
-	userDetails: {name: 'Rishi'},
 	
 })
 
@@ -23,4 +23,4 @@ angular.module("userPage", [])
 	$scope.user = {};
 	$scope.user.details = userConstant.userDetails
 	$scope.user.navs = userConstant.navs;
-} ])
+}])
