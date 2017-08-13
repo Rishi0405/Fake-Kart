@@ -1,0 +1,199 @@
+/* Reset Code */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* -------------------------------------------------------
+	Basic Styles
+------------------------------------------------------- */
+body {
+	background: #fff;
+	color: #000;
+	font: 14px/24px 'Open Sans', sans-serif;
+	font-weight: 400;
+	font-family: 'Open Sans', sans-serif;
+	overflow-x: hidden;
+	/* overflow-y: scroll; */
+	-webkit-overflow-scrolling: touch;
+	-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+	-webkit-text-size-adjust: 100%;
+	    -ms-text-size-adjust: 100%; }
+.left {
+	float: left; }
+.center {
+	display: table;
+	float: none;
+	margin: 0 auto; }
+.right {
+	float: right; }
+.textLeft {
+	text-align: left; }
+.textCenter {
+	text-align: center; }
+.textRight {
+	text-align: right; }
+button:focus{
+	outline: none;
+}
+
+/* -------------------------------------------------------
+	Header
+------------------------------------------------------- */
+
+.login-signup-section{
+	padding: 10px 15px;
+}
+
+.login-signup-section button{
+	padding: 0;
+	margin: 0;
+	background: none;
+	border: none;
+	margin-left: 15px;
+}
+
+.login-signup-section button:hover,
+.login-signup-section button.selected{
+	color:#ff0000;
+}
+
+.login-section .content{
+	width: 100%;
+	max-width: 500px;
+	margin: auto;
+}
+
+.login-section .ng-isolate-scope li{
+	display: inline-block;
+	border: 1px solid #ccc;
+	width: 50%;
+	text-align: center;
+	padding: 12px;
+}
+
+.login-section .ng-isolate-scope li:first-child{
+	border-right: none;
+}
+
+.login-section .ng-isolate-scope li:last-child{
+	border-left: none;
+}
+
+.login-section .section-login{
+	border: 1px solid #ccc;
+	border-top: none;
+	padding: 30px 15px 15px 15px;
+}
+
+.login-section .ng-isolate-scope li:hover,
+.login-section .ng-isolate-scope li.active{
+	border: 1px solid #2e94ff;
+	background: #2e94ff;
+	color: #fff;
+}
+
+.login-section md-input-container:not(.md-input-invalid).md-input-focused label{
+	color: #2e94ff;
+}
+
+.login-section md-input-container:not(.md-input-invalid).md-input-focused .md-input{
+	border-color: #2e94ff;
+}
+
+.login-section md-input-container{
+	margin: 0;
+}
+
+.login-section .spwd-check{
+	margin: 20px 0 10px;
+	font-size: 13px;
+}
+
+.login-section md-checkbox .md-icon{
+	border-width: 1px;
+	border-color: #ccc;
+}
+
+.login-section md-checkbox.md-checked .md-icon:after{
+	left: 6px;
+	top: 1px;
+}
+
+.login-section md-checkbox .md-label{
+	color: #a9a9a9;
+}
+
+.login-section md-checkbox.md-checked .md-label{
+	color: #000;
+}
+
+.login-section .md-checked md-checkbox .md-icon{
+	border: 1px solid rgba(255,64,129,0.87);
+}
+
+.login-section .valid-label,
+.md-errors-spacer{
+	display: none;
+}
+
+.login-section .login-btn{
+	background: #2e94ff;
+	color: #fff;
+	padding: ;
+	margin: 10px 0 0;
+	min-height: 38px;
+	width: 100%;
+}
+
+.login-section .login-btn:hover{
+	background: #2683e4;
+} 
+
+.signup-section md-input-container{
+	margin-bottom: 20px;
+}
+
+.signup-section md-input-container:last-child{
+	margin-bottom: 0;
+}

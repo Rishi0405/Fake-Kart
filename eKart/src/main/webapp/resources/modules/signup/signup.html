@@ -1,49 +1,50 @@
 <header></header>
-<div>
-	<signuplogin-header status="signup.pills.status"></signuplogin-header>
-	<div>
-		<div ng-show="signup.pills.status">
-			<form name="business">
-				<md-input-container class="md-block"> <label>{{'e-mail_id'
-					| translate}}</label> <input md-no-asterisk name="email"
-					ng-model="signup.formdata.email" minlength="10" maxlength="100"
-					ng-pattern="signup.genral.emailpattern" required>
-				<div ng-messages="business.email.$error">
-					<div
-						ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">{{'mail_error'
-						| translate}}</div>
-				</div>
-				</md-input-container>
-				<md-input-container class="md-block"> <label>{{'password'
-					| translate}}</label> <input name="password"
-					ng-model="signup.formdata.password" minlength="8"
-					type="{{signup.genral.reveal?'text':'password'}}"
-					ng-pattern="signup.genral.passpattern" required>
+<div class="login-section signup-section col-md-12">
+	<div class="content">
+		<signuplogin-header status="signup.pills.status"></signuplogin-header>
+		<div class="section-login">
+			<div ng-show="signup.pills.status">
+				<form name="business">
+					<md-input-container class="md-block"> <label>{{'e-mail_id'
+						| translate}}</label> <input md-no-asterisk name="email"
+						ng-model="signup.formdata.email" minlength="10" maxlength="100"
+						ng-pattern="signup.genral.emailpattern" required>
+					<div ng-messages="business.email.$error">
+						<div
+							ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">{{'mail_error'
+							| translate}}</div>
+					</div>
+					</md-input-container>
+					<md-input-container class="md-block"> <label>{{'password'
+						| translate}}</label> <input name="password"
+						ng-model="signup.formdata.password" minlength="8"
+						type="{{signup.genral.reveal?'text':'password'}}"
+						ng-pattern="signup.genral.passpattern" required>
+					
+					<div ng-messages="business.password.$error">
+						<div ng-message-exp="['required', 'minlength', 'pattern']">{{
+							'pass_error' | translate}}</div>
+					</div>
+					</md-input-container>
+					<md-input-container class="md-block"> <label>{{'confirm_password'
+						| translate}}</label> <input name="cpassword" ng-model="signup.passmatch"
+						type="password" ng-change="checkPassword(business)"
+						ng-pattern="/^{{signup.formdata.password}}$/" required>
+					<div class="valid-label" ng-messages="business.email.$error">
+						<div ng-message-exp="['pattern']">{{'cpass_error' |
+							translate}}</div>
+					</div>
+					</md-input-container>
+				</form>
+				<md-checkbox name="showpassword" class="spwd-check" ng-model="signup.genral.reveal">{{'reveal_pass'
+						| translate}}</md-checkbox>
 				<div>
-					<md-checkbox name="showpassword" ng-model="signup.genral.reveal">{{'reveal_pass'
-					| translate}}</md-checkbox>
+					<md-button class="md-primary login-btn"
+						ng-disabled="business.$invalid && business.cpassword.error.notmatch">{{'signup'
+					| translate}}</md-button>
 				</div>
-				<div ng-messages="business.password.$error">
-					<div ng-message-exp="['required', 'minlength', 'pattern']">{{
-						'pass_error' | translate}}</div>
-				</div>
-				</md-input-container>
-				<md-input-container class="md-block"> <label>{{'confirm_password'
-					| translate}}</label> <input name="cpassword" ng-model="signup.passmatch"
-					type="password" ng-change="checkPassword(business)"
-					ng-pattern="/^{{signup.formdata.password}}$/" required>
-				<div ng-messages="business.email.$error">
-					<div ng-message-exp="['pattern']">{{'cpass_error' |
-						translate}}</div>
-				</div>
-				</md-input-container>
-			</form>
-			<div>
-				<md-button class="md-primary"
-					ng-disabled="business.$invalid && business.cpassword.error.notmatch">{{'signup'
-				| translate}}</md-button>
 			</div>
+			<div ng-hide="signup.pills.status">Working on it</div>
 		</div>
-		<div ng-hide="signup.pills.status">Working on it</div>
 	</div>
 </div>
