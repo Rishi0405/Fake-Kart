@@ -81,6 +81,20 @@ var rootConfig = function($stateProvider, $urlRouterProvider){
 		controller: "userController"
 	})
 	
+	.state("main.myprofile.dashboard",{
+		url: "/dashboard",
+		templateUrl: "resources/modules/dashboard/dashboard.html",
+		resolve: {
+			loadplugins: ['$ocLazyLoad', function($ocLazyLoad) {
+	             return $ocLazyLoad.load({
+	            	 		name: "billingPage",
+	            	 		files: ["resources/modules/dashboard/dashboard.js"],
+	            	 });
+			 }]
+		},
+		controller: "dashboardController"
+	})
+	
 	.state("main.myprofile.billing",{
 		url: "/invoice",
 		templateUrl: "resources/modules/billing/billing.html",

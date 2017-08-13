@@ -1,0 +1,8 @@
+<div>
+	<ul>
+		<li ng-repeat="nav in user.navs" title="{{nav.title}}"
+			ng-class="{active: $state.includes('{{nav.uiState}}')}"><a
+			ui-sref="{{nav.uiState}}"> <i class="fa fa-{{nav.icon}}"></i><label>{{nav.title}}</label>
+		</a></li>
+	</ul>
+</div>

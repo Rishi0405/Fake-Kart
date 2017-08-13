@@ -5,7 +5,7 @@ var myTitle = function(){
 		replace:true,
 	}
 }
-var fixedHeader = function($window, $timeout){
+var fixedHeader = function($window, $timeout, commonConstants){
 	return{
 		restrict: "E",
 		scope: true,
@@ -18,7 +18,7 @@ var fixedHeader = function($window, $timeout){
 			
 			var fixedScroll = function(e) {
 	            if(window.scrollY >= 200){
-	            	scope.templatelink = './resources/modules/home/banners/header.html';
+	            	scope.templatelink = commonConstants.fixedHeader;;
 	            }else{
 	            	scope.templatelink = '';
 	            }
@@ -33,13 +33,18 @@ var fixedHeader = function($window, $timeout){
 		}
 	}
 }
-var header = function(){
+var header = function(commonConstants){
 	return{
 		restrict: "E",
-		template: '<div ng-include="\'./resources/modules/home/banners/header.html\'">',
+		scope: true,
+		controller: function($scope){
+			$scope.url = commonConstants.header
+		},
+		template: '<div ng-include="url">',
 		replace:true
 	}
 }
+
 var signuploginHeader = function(){
 	return{
 		restrict: "E",
@@ -55,6 +60,18 @@ var signuploginHeader = function(){
 					'</ul>',
 					'</div>'].join(""),
 		replace: true
+	}
+}
+
+var userBanner = function(commonConstants){
+	return{
+		restrict: "E",
+		scope: true,
+		template: ['<div ng-include="banners.nav"></div>',
+				   '<div ng-include="banners.header"></div>'].join(""),
+		controller: function($scope, $element){
+			$scope.banners = commonConstants.userBanner;
+		}
 	}
 }
 var barcodescanner = function($window, $timeout){
@@ -102,7 +119,10 @@ var barcodescanner = function($window, $timeout){
 	}
 }
 
-fixedHeader.$inject = ['$window', '$timeout'];
+
+fixedHeader.$inject = ['$window', '$timeout', 'commonConstants'];
+header.$inject = ["commonConstants"];
+userBanner.$inject = ['commonConstants'];
 barcodescanner.$inject = ['$window', '$timeout'];
 
 angular.module("eKart")
@@ -110,4 +130,5 @@ angular.module("eKart")
 .directive("fixedHeader",fixedHeader)
 .directive("header",header)
 .directive("signuploginHeader",signuploginHeader)
+.directive("userBanner", userBanner)
 .directive("barCodeScanner", barcodescanner)
