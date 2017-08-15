@@ -1,4 +1,4 @@
-var rootConfig = function($stateProvider, $urlRouterProvider){
+var rootConfig = function($stateProvider, $urlRouterProvider, $translatePartialLoaderProvider){
 
 	$urlRouterProvider.otherwise('/');
 	
@@ -28,6 +28,9 @@ var rootConfig = function($stateProvider, $urlRouterProvider){
 	            	 		name: "homePage",
 	            	 		files: ["resources/modules/home/home.js"],
 	            	 });
+			 }],
+			 translate: [function(){
+				 $translatePartialLoaderProvider.addPart('home');
 			 }]
 		},
 		controller: "homeController"
@@ -90,6 +93,9 @@ var rootConfig = function($stateProvider, $urlRouterProvider){
 	            	 		name: "billingPage",
 	            	 		files: ["resources/modules/dashboard/dashboard.js"],
 	            	 });
+			 }],
+			 translate: [function(){
+				 $translatePartialLoaderProvider.addPart('user/dashboard');
 			 }]
 		},
 		controller: "dashboardController"
@@ -104,22 +110,28 @@ var rootConfig = function($stateProvider, $urlRouterProvider){
 	            	 		name: "billingPage",
 	            	 		files: ["resources/modules/billing/billing.js"],
 	            	 });
+			 }],
+			 translate: [function(){
+				 $translatePartialLoaderProvider.addPart('user/billing');
 			 }]
 		},
 		controller: "billingController"
 	})
 }
 
-var translate = function($translateProvider, $translatePartialLoaderProvider) {
-	$translateProvider.useSanitizeValueStrategy('sanitize');
+var translate = function($translateProvider, $translatePartialLoaderProvider, $translateSanitizationProvider) {
+	//Sanitize strategy
+	$translateSanitizationProvider.addStrategy('sce', 'translateStrategy');
+	$translateProvider.useSanitizeValueStrategy('sce');
+	//To use cache
 	$translateProvider.useLoaderCache(true);
+	//Initial config
 	$translateProvider.useLoader('$translatePartialLoader', {
 		urlTemplate: './resources/languagefiles/{part}/{lang}.json',
 		loadFailureHandler: 'MyErrorHandler'
 	});
 	//TranslateLoader
-	$translatePartialLoaderProvider.addPart('home');
-	$translateProvider.preferredLanguage('en');
+	//$translateProvider.preferredLanguage('en');
 }
 
 var qprovider  = function($qProvider){
@@ -138,8 +150,8 @@ var providerConfig = function($ocLazyLoadProvider) {
   });
 }
 
-rootConfig.$inject = ["$stateProvider", "$urlRouterProvider"];
-translate.$inject = ["$translateProvider", "$translatePartialLoaderProvider"];
+rootConfig.$inject = ["$stateProvider", "$urlRouterProvider", "$translatePartialLoaderProvider"];
+translate.$inject = ["$translateProvider", "$translatePartialLoaderProvider", "$translateSanitizationProvider"];
 qprovider.$inject = ["$qProvider"];
 locationProvider.$inject = ['$locationProvider'];
 providerConfig.$inject = ['$ocLazyLoadProvider'];

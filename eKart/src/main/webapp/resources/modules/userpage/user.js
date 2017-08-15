@@ -18,9 +18,16 @@ angular.module("userPage", [])
 	
 })
 
-.controller("userController", [ "$scope", "userConstant", function($scope, userConstant) {
+.controller("userController", [ "$scope", "stateService", "languageService", "userConstant", function($scope, stateService, languageService, userConstant) {
 	console.log("This is user page.")
 	$scope.user = {};
 	$scope.user.details = userConstant.userDetails
-	$scope.user.navs = userConstant.navs;
+	$scope.user.nav = {}
+	$scope.user.nav.navs = userConstant.navs;
+	languageService.translateTo('en')
+	
+	$scope.user.nav.changeLanguage = function(){
+		console.log($scope.user.language)
+		languageService.translateTo($scope.user.language)
+	}
 }])

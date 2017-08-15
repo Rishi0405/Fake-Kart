@@ -1,3 +1,24 @@
+var translateErrorHandler = function ($q, $log) {
+	  return function (part, lang, response) {
+		    $log.error('The "' + part + '/' + lang + '" part was not loaded.');
+		    return $q.when({});
+	  };
+}
+
+var translateStrategy = function ($sce) {
+	  return function (value, mode) {
+	    if (mode === 'text') {
+	    	var result = '';
+	      result = $sce.trustAsHtml(value);
+	      if (result.$unwrapTrustedValue) {
+	        result = result.$unwrapTrustedValue();
+	      }
+	      value = result;
+	    }
+	    return value;
+	  };
+}
+
 var dataService = function($http, $q){
 	var call = function(type,url,data,options){
 		var deffer = $q.defer();
@@ -28,18 +49,37 @@ var promise = function($q){
 	}
 }
 
-var translateErrorHandler = function ($q, $log) {
-	  return function (part, lang, response) {
-		    $log.error('The "' + part + '/' + lang + '" part was not loaded.');
-		    return $q.when({});
-	  };
+var stateService = function($state){
+	var goToState = function(state){
+		$state.go(state);
+	}
+	
+	return{
+		goToState: goToState
+	}
 }
 
+var languageService = function($translate){
+	var translateTo = function(lang){
+		$translate.use(lang)
+	}
+	return {
+		translateTo: translateTo
+	}
+}
+
+
+translateErrorHandler.$inject = ["$q", "$log"];
+translateStrategy.$inject = ["$sce"];
 dataService.$inject = ["$http", "$q"];
 promise.$inject = ["$q"];
-translateErrorHandler.$inject = ["$q", "$log"];
+stateService.$inject = ["$state"];
+languageService.$inject = ["$translate"];
 
 angular.module("eKart")
+.factory('MyErrorHandler', translateErrorHandler)
+.factory('translateStrategy', translateStrategy)
 .factory("dataService",dataService)
 .factory("promise",promise)
-.factory('MyErrorHandler', translateErrorHandler)
+.factory("languageService", languageService)
+.factory("stateService", stateService)

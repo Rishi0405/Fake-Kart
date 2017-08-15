@@ -6,10 +6,10 @@
 	"user_login": "Nom d'utilisateur / Email",
 	"e-mail_id": "Nom d'utilisateur / Email",
 	"password": "Mot de passe",
-	"reveal_pass": "Mot de passe",
+	"reveal_pass": "montrer le mot de passe",
 	"confirm_password": "Confirmez le mot de passe",
-	"required": "Ceci est nécessaire.",
-	"mail_error": "Votre adresse électronique doit avoir entre 10 et 100 caractères et ressembler à une adresse e-mail.",
-	"pass_error": "Le mot de passe doit comporter au moins 8 caractères et doit contenir un nombre, un caractère et un caractère spécial.",
+	"required": "Ceci est nÃ©cessaire.",
+	"mail_error": "Votre adresse Ã©lectronique doit avoir entre 10 et 100 caractÃ¨res et ressembler Ã  une adresse e-mail.",
+	"pass_error": "Le mot de passe doit comporter au moins 8 caractÃ¨res et doit contenir un nombre, un caractÃ¨re et un caractÃ¨re spÃ©cial.",
 	"cpass_error": "Le mot de passe ne correspond pas l'un avec l'autre."	
 }
