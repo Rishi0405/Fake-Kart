@@ -20,4 +20,7 @@ translateRefresh.$inject = ["$rootScope", "$translate"];
 angular.module("eKart")
 .run(necessaryRootVariables)
 .run(debuggeUiRouter)
-.run(translateRefresh);
+.run(translateRefresh)
+.run(function ($browser) {
+    $browser.baseHref = function () { return "/" };
+  });

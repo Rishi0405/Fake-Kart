@@ -138,9 +138,9 @@ var qprovider  = function($qProvider){
 	$qProvider.errorOnUnhandledRejections(false)
 }
 
-var locationProvider = function($locationProvider) {
-	$locationProvider.html5Mode(true);
-	$locationProvider.hashPrefix('');
+var locationProvider = function($locationProvider, $provide) {
+	//$locationProvider.html5Mode(true);
+	//$locationProvider.hashPrefix('#');
 }
 
 var providerConfig = function($ocLazyLoadProvider) {
@@ -153,7 +153,7 @@ var providerConfig = function($ocLazyLoadProvider) {
 rootConfig.$inject = ["$stateProvider", "$urlRouterProvider", "$translatePartialLoaderProvider"];
 translate.$inject = ["$translateProvider", "$translatePartialLoaderProvider", "$translateSanitizationProvider"];
 qprovider.$inject = ["$qProvider"];
-locationProvider.$inject = ['$locationProvider'];
+locationProvider.$inject = ['$locationProvider', '$provide'];
 providerConfig.$inject = ['$ocLazyLoadProvider'];
 
 
