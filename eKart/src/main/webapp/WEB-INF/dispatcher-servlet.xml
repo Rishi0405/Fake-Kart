@@ -10,5 +10,26 @@
                            http://www.springframework.org/schema/context/spring-context.xsd ">
     <mvc:annotation-driven />
     <context:component-scan base-package="com.eKart.*" />
+    
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+	    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+	    <property name="url" value="jdbc:mysql://35.194.192.8:3306/Ekart_main_db" />
+	    <property name="username" value="root" />
+	    <property name="password" value="admin" />
+	    <property name="validationQuery" value="SELECT 1"/>
+	</bean>
+	
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+    
+    
+   <!--ekartorg0405:asia-east1:ekart 
+   		ip: 35.194.192.8
+   		port: 3306
+   		user: root
+   		pass: admin  --> 
+    
     <mvc:default-servlet-handler />
 </beans>
