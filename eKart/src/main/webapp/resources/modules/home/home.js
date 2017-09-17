@@ -1,13 +1,10 @@
 angular.module("homePage",[])
-.constant("homeConstant",{
-	languages: [{label:"English", value:"en"},{label:"French", value:"fr"},{label:"Tamil", value:"ta"}]
-})
-.controller("homeController",["$scope", "stateService", "languageService", "homeConstant",function($scope, stateService, languageService, homeConstant){
+.controller("homeController",["$scope", "stateService", "languageService", "commonConstants",function($scope, stateService, languageService, commonConstants){
 	console.log("home")
 	$scope.home = {};
 	$scope.home.header = {};
 	$scope.home.footer = {};
-	$scope.home.footer.language = {data:homeConstant.languages, model: "en"};
+	$scope.home.footer.language = {data:commonConstants.languages, model: "en"};
 	languageService.translateTo($scope.home.footer.language.model)
 	
 	$scope.home.header.gotoState = function(state){

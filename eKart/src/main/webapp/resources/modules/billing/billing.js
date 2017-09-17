@@ -1,5 +1,4 @@
 angular.module("billingPage", [])
-.constant("billingConstant",{})
 .controller("billingController",["$scope",function($scope){
 	
 	$scope.billing = {};

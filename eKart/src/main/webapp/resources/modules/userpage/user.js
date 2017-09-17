@@ -1,29 +1,10 @@
 angular.module("userPage", [])
-
-.constant("userConstant", {
-	userDetails: {name: 'Rishi'},
-	navs : [{
-		icon : "window-maximize",
-		title : "Dashboard",
-		uiState : "main.myprofile.dashboard"
-	}, {
-		icon : "shopping-cart",
-		title : "Billing",
-		uiState : "main.myprofile.billing"
-	}, {
-		icon : "cog",
-		title : "Settings",
-		uiState : "main.myprofile.setttings"
-	}],
-	
-})
-
-.controller("userController", [ "$scope", "stateService", "languageService", "userConstant", function($scope, stateService, languageService, userConstant) {
+.controller("userController", [ "$scope", "stateService", "languageService", "commonConstants", function($scope, stateService, languageService, commonConstants) {
 	console.log("This is user page.")
 	$scope.user = {};
-	$scope.user.details = userConstant.userDetails
+	$scope.user.details = commonConstants.userDetails
 	$scope.user.nav = {}
-	$scope.user.nav.navs = userConstant.navs;
+	$scope.user.nav.navs = commonConstants.navs;
 	languageService.translateTo('en')
 	
 	$scope.user.nav.changeLanguage = function(){
