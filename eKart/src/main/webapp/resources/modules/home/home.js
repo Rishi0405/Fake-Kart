@@ -3,8 +3,12 @@ angular.module("homePage",[])
 	console.log("home")
 	$scope.home = {};
 	$scope.home.header = {};
+	$scope.home.header.url = commonConstants.home.header;
 	$scope.home.footer = {};
+	$scope.home.footer.url = commonConstants.home.footer;
 	$scope.home.footer.language = {data:commonConstants.languages, model: "en"};
+	
+	
 	languageService.translateTo($scope.home.footer.language.model)
 	
 	$scope.home.header.gotoState = function(state){

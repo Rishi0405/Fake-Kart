@@ -98,6 +98,9 @@ button:focus{
 	color:#ff0000;
 }
 
+.active .login-signup-section {
+    position: fixed;
+}
 .login-section .content{
 	width: 100%;
 	max-width: 500px;

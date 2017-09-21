@@ -69,7 +69,7 @@ var rootConfig = function($stateProvider, $urlRouterProvider, $translatePartialL
 		controller: "loginController"
 	})
 	
-	.state("main.myprofile",{
+	.state("main.profile",{
 		url: "profile",
 		abstract: true,
 		templateUrl: "resources/modules/userpage/user.html",
@@ -84,7 +84,7 @@ var rootConfig = function($stateProvider, $urlRouterProvider, $translatePartialL
 		controller: "userController"
 	})
 	
-	.state("main.myprofile.dashboard",{
+	.state("main.profile.dashboard",{
 		url: "/dashboard",
 		templateUrl: "resources/modules/dashboard/dashboard.html",
 		resolve: {
@@ -101,7 +101,7 @@ var rootConfig = function($stateProvider, $urlRouterProvider, $translatePartialL
 		controller: "dashboardController"
 	})
 	
-	.state("main.myprofile.billing",{
+	.state("main.profile.billing",{
 		url: "/invoice",
 		templateUrl: "resources/modules/billing/billing.html",
 		resolve: {
@@ -116,6 +116,36 @@ var rootConfig = function($stateProvider, $urlRouterProvider, $translatePartialL
 			 }]
 		},
 		controller: "billingController"
+	})
+	
+	.state("main.profile.settings",{
+		url: "/settings",
+		templateUrl: "resources/modules/settings/settings.html",
+		resolve: {
+			loadplugins: ['$ocLazyLoad', function($ocLazyLoad) {
+	             return $ocLazyLoad.load({
+	            	 		name: "settingsPage",
+	            	 		files: ["resources/modules/settings/settings.js"],
+	            	 });
+			 }],
+			 translate: [function(){
+				 $translatePartialLoaderProvider.addPart('user/settings');
+			 }]
+		},
+		controller: "settingsController"
+	})
+	.state("main.profile.settings.myprofile",{
+		url: "/myProfile",
+		templateUrl: "resources/modules/settings/profile/profile.html",
+		resolve: {
+			loadplugins: ['$ocLazyLoad', function($ocLazyLoad) {
+	             return $ocLazyLoad.load({
+	            	 		name: "myProfilePage",
+	            	 		files: ["resources/modules/settings/profile/profile.js"],
+	            	 });
+			 }]
+		},
+		controller: "myProfileController"
 	})
 }
 

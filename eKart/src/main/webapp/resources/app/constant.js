@@ -5,7 +5,12 @@ angular.module('eKart')
 	email_pattern: /^.+@.+\..+$/,
 	
 	/*variables*/
+	
+	/*common variables*/
 	userDetails: {name: 'Rishi'},
+	languages: [{label:"English", value:"en"},{label:"French", value:"fr"},{label:"Tamil", value:"ta"}],
+	
+	/*userpage variables*/
 	navs : [{
 		icon : "window-maximize",
 		title : "Dashboard",
@@ -17,15 +22,21 @@ angular.module('eKart')
 	}, {
 		icon : "cog",
 		title : "Settings",
-		uiState : "main.myprofile.setttings"
+		uiState : "main.profile.settings.myprofile"
 	}],
-	languages: [{label:"English", value:"en"},{label:"French", value:"fr"},{label:"Tamil", value:"ta"}],
 	
 	
+	/*settingsPage variables*/
+	settings:{settingsList: [{tab: "Profile", state: "main.profile.settings.myprofile"}],
+				},
+		
+	/*profile variables*/
+	profile:{},	
 	
-	/*templates*/
-	header: './resources/modules/home/banners/header.html',
-	footer: './resources/modules/home/banners/footer.html',
+	/*templateUrls*/
+	home:{header: './resources/modules/home/banners/header.html',footer: './resources/modules/home/banners/footer.html'},
+	signupLoginHeader: ".//resources/app/commonTemplate/signupLoginHeader.html",
 	fixedHeader:'./resources/modules/home/banners/header.html',
 	userBanner: {nav: './resources/modules/userpage/navs/nav.html', header: './resources/modules/userpage/navs/userheader.html'},
+	
 })

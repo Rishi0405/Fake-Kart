@@ -1,2 +1,16 @@
-<user-banner></user-banner>
-<div ui-view></div>
+<div class="col-md-12 nopadding">
+	<div class="col-md-12 nopadding">
+		<div ng-include="user.banner.header"></div>
+
+	</div>
+	<div class="col-md-12 nopadding">
+		<div class="col-md-1 nopadding">
+			<div ng-include="user.banner.nav"></div>
+		</div>
+		<div class="col-md-10">
+			<div ui-view></div>
+		</div>
+	</div>
+</div>
+
+

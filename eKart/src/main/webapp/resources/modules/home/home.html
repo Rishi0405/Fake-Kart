@@ -1,4 +1,18 @@
-<fixed-header></fixed-header>
-<home-header></home-header>
-<div ui-view></div>
-<home-footer></home-footer>
+<scroll-header></scroll-header>
+<div class="row">
+	<div class="row">
+		<div ng-include="home.header.url"></div>
+	</div>
+	<div class="col-md-12">
+		<div ui-view></div>
+	</div>
+	<div class="row">
+		<div ng-include="home.footer.url"></div>
+	</div>
+</div>
+
+
+
+
+
+

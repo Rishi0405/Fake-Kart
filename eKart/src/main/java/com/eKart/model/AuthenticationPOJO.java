@@ -1,6 +1,6 @@
 package com.eKart.model;
 
-public class LoginPOJO {
+public class AuthenticationPOJO {
 
 	private String username;
 	private String password;

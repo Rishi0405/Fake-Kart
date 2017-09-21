@@ -5,24 +5,24 @@ var myTitle = function(){
 		replace:true,
 	}
 }
-var fixedHeader = function($window, $timeout, commonConstants){
+var scrollHeader = function($window, $timeout, commonConstants){
 	return{
 		restrict: "E",
 		scope: true,
-		template: '<div ng-include="templatelink"></div>',
+		template: '<div ng-include="template.link" ng-class="{\'active\': template.active}"></div>',
 		controller: function($scope, $element){
-			$scope.templatelink = '';
+			$scope.template = {link: '', active: false};
 		},
 		replace: true,
 		link: function(scope,element,attr){
 			
 			var fixedScroll = function(e) {
 	            if(window.scrollY >= 200){
-	            	scope.templatelink = commonConstants.fixedHeader;
-	            	element.addClass("activeheader");
+	            	scope.template.link = commonConstants.fixedHeader;
+	            	scope.template.active = true;
 	            }else{
-	            	element.removeClass("activeheader");
-	            	scope.templatelink = '';
+	            	scope.template.active = false;
+	            	scope.template.link = '';
 	            }
 	            $timeout(function(){scope.$digest();},5);
 	        }
@@ -35,58 +35,18 @@ var fixedHeader = function($window, $timeout, commonConstants){
 		}
 	}
 }
-var homeHeader = function(commonConstants){
-	return{
-		restrict: "E",
-		scope: true,
-		template: '<div ng-include="url"></div>',
-		controller: function($scope){
-			$scope.url = commonConstants.header
-		},
-		replace:true
-	}
-}
 
-var homeFooter = function(commonConstants){
-	return{
-		restrict: "E",
-		scope: true,
-		template: '<div ng-include="url"></div>',
-		controller: function($scope){
-			$scope.url = commonConstants.footer
-		},
-		replace:true
-	}
-} 
-
-var signuploginHeader = function(){
+var signuploginHeader = function(commonConstants){
 	return{
 		restrict: "E",
 		scope:{
 			status: '=status',
 		},
-		template: ['<div>',
-					'<ul>',
-					'<li ng-class="{active: status}" ',
-					'ng-click="status=true">{{\'b_profile\' | translate}}</li>',
-					'<li ng-class="{active: !status}" ',
-					'ng-click="status=false">{{\'u_profile\' | translate}}</li>',
-					'</ul>',
-					'</div>'].join(""),
+		template: commonConstants.signupLoginHeader,
 		replace: true
 	}
 }
 
-var userBanner = function(commonConstants){
-	return{
-		restrict: "E",
-		template: ['<div ng-include="banners.nav"></div>',
-				   '<div ng-include="banners.header"></div>'].join(""),
-		controller: function($scope, $element){
-			$scope.banners = commonConstants.userBanner;
-		}
-	}
-}
 var barcodescanner = function($window, $timeout){
 	return{
 		restrict: "E",
@@ -133,17 +93,12 @@ var barcodescanner = function($window, $timeout){
 }
 
 
-fixedHeader.$inject = ['$window', '$timeout', 'commonConstants'];
-homeHeader.$inject = ["commonConstants"];
-homeFooter.$inject = ["commonConstants"];
-userBanner.$inject = ['commonConstants'];
+scrollHeader.$inject = ['$window', '$timeout', 'commonConstants'];
+signuploginHeader.$inject = ['commonConstants'];
 barcodescanner.$inject = ['$window', '$timeout'];
 
 angular.module("eKart")
 .directive("myTitle",myTitle)
-.directive("fixedHeader",fixedHeader)
-.directive("homeHeader",homeHeader)
-.directive("homeFooter", homeFooter)
+.directive("scrollHeader",scrollHeader)
 .directive("signuploginHeader",signuploginHeader)
-.directive("userBanner", userBanner)
 .directive("barCodeScanner", barcodescanner)

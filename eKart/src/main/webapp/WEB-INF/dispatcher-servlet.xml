@@ -10,7 +10,13 @@
                            http://www.springframework.org/schema/context/spring-context.xsd ">
     <mvc:annotation-driven />
     <context:component-scan base-package="com.eKart.*" />
+    <!-- swagger -->
+    <bean id="swagger2Config" class="springfox.documentation.swagger2.configuration.Swagger2DocumentationConfiguration" />
+    <mvc:resources mapping="swagger-ui.html" location="classpath:/META-INF/resources/" />
+	<mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/" />
     
+    
+    <!-- dataSource -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 	    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
 	    <property name="url" value="jdbc:mysql://35.194.192.8:3306/Ekart_main_db" />
@@ -19,7 +25,7 @@
 	    <property name="validationQuery" value="SELECT 1"/>
 	</bean>
 	
-	
+	<!-- jdbcTemplate -->
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
