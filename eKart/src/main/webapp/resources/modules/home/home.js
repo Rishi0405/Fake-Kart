@@ -3,9 +3,9 @@ angular.module("homePage",[])
 	console.log("home")
 	$scope.home = {};
 	$scope.home.header = {};
-	$scope.home.header.url = commonConstants.home.header;
+	$scope.home.header.url = commonConstants.templateUrl.home.header;
 	$scope.home.footer = {};
-	$scope.home.footer.url = commonConstants.home.footer;
+	$scope.home.footer.url = commonConstants.templateUrl.home.footer;
 	$scope.home.footer.language = {data:commonConstants.languages, model: "en"};
 	
 	

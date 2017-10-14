@@ -42,7 +42,7 @@ module.exports = function(grunt) {
         },
         app_common: {
           files: {
-            'resources/gruntmin/app.min.js': [
+            'resources/dist/app.min.js': [
             									'resources/app/core/app.js',
             									'resources/app/core/constant.js',
             									'resources/app/core/config.js',

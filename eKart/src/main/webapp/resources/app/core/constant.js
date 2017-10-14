@@ -34,9 +34,11 @@ angular.module('eKart')
 	profile:{},	
 	
 	/*templateUrls*/
-	home:{header: './resources/modules/home/banners/header.html',footer: './resources/modules/home/banners/footer.html'},
-	signupLoginHeader: './resources/app/commonTemplate/signupLoginHeader.html',
-	fixedHeader:'./resources/modules/home/banners/header.html',
-	userBanner: {nav: './resources/modules/userpage/navs/nav.html', header: './resources/modules/userpage/navs/userheader.html'},
+	templateUrl:{
+		home:{header: './resources/modules/home/banners/header.html',footer: './resources/modules/home/banners/footer.html'},
+		signupLoginHeader: './resources/app/commonTemplate/signupLoginHeader.html',
+		fixedHeader:'./resources/modules/home/banners/header.html',
+		userBanner: {nav: './resources/modules/userpage/navs/nav.html', header: './resources/modules/userpage/navs/userheader.html'},
+	}
 	
 })

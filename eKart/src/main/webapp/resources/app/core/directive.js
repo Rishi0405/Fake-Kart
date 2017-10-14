@@ -18,7 +18,7 @@ var scrollHeader = function($window, $timeout, commonConstants){
 			
 			var fixedScroll = function(e) {
 	            if(window.scrollY >= 200){
-	            	scope.template.link = commonConstants.fixedHeader;
+	            	scope.template.link = commonConstants.templateUrl.fixedHeader;
 	            	scope.template.active = true;
 	            }else{
 	            	scope.template.active = false;
@@ -42,7 +42,7 @@ var signuploginHeader = function(commonConstants){
 		scope:{
 			status: '=status',
 		},
-		templateUrl: commonConstants.signupLoginHeader,
+		templateUrl: commonConstants.templateUrl.signupLoginHeader,
 		replace: true
 	}
 }
